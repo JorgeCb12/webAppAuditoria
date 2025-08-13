@@ -19,31 +19,43 @@ const Login = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 50 }}>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", width: 250 }}>
-        <label>
-          Usuario:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            autoFocus
-            required
-          />
-        </label>
-        <label style={{ marginTop: 10 }}>
-          Contraseña:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" style={{ marginTop: 20 }}>Entrar</button>
-        {error && <div style={{ color: "red", marginTop: 10 }}>{error}</div>}
-      </form>
+    <div className="login-bg">
+      <div className="login-card">
+        <div className="login-logo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="24" fill="#4F8CFF"/>
+            <path d="M24 14L32 34H16L24 14Z" fill="white"/>
+          </svg>
+        </div>
+        <h2 className="login-title">Iniciar sesión</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label className="login-label">
+            Usuario
+            <input
+              className="login-input"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              autoFocus
+              required
+              placeholder="Tu usuario"
+            />
+          </label>
+          <label className="login-label">
+            Contraseña
+            <input
+              className="login-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Tu contraseña"
+            />
+          </label>
+          <button className="login-btn" type="submit">Entrar</button>
+          {error && <div className="login-error">{error}</div>}
+        </form>
+      </div>
     </div>
   );
 };
